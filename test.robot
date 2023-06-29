@@ -8,12 +8,12 @@ Library              ${EXECDIR}/factory/update.py
 
 ***Variables***
    ${HEADER}    ${TYPEFORM_ACCESS_TOKEN}
-    ${BODY}    Json Body
-    ${BODYU}    Json Bodyup
+    
+   
 *** Test Cases ***
 Deve fazer um Post na API
     Post Api    ${URI}/forms   ${HEADER}    ${BODY}
- 
+ ${BODY}    Json Body
    
 
 Deve fazer um Get na API
@@ -22,7 +22,7 @@ Deve fazer um Get na API
     
 Deve Atualizar o body
     PATCH API    ${URI}/forms/${form_id}    ${HEADER}    ${BODYU}
-  
+   ${BODYU}    Json Bodyup
 
 Teste 
     Get All Del    ${URI}/forms    ${HEADER}
