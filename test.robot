@@ -10,24 +10,28 @@ Library              ${EXECDIR}/factory/update.py
    
 *** Test Cases ***
 Deve fazer um Post na API
+     ${H}     json header
      ${B}     Json Body
-    Post Api    ${URI}/forms   TYPEFORM_ACCESS_TOKEN   ${B}
+    Post Api    ${URI}/forms   ${H}   ${B}
  
    
 
 Deve fazer um Get na API
-     
-    Get Api    ${URI}/forms    TYPEFORM_ACCESS_TOKEN
+     ${H}    json header
+    Get Api    ${URI}/forms    ${H}
    
     
 Deve Atualizar o body
+     ${H}    json haeder
     ${BU}    Json Bodyup
-    PATCH API    ${URI}/forms/${form_id}    TYPEFORM_ACCESS_TOKEN    ${BU}
+    PATCH API    ${URI}/forms/${form_id}    ${H}    ${BU}
    
 
 Teste
-    Get All Del    ${URI}/forms    TYPEFORM_ACCESS_TOKEN
+    ${H}    json header
+    Get All Del    ${URI}/forms    ${H}
 
 Deve fazer um Del
-    Get del Form    ${URI}/forms/${form_id}       TYPEFORM_ACCESS_TOKEN
+    ${H}    json header
+    Get del Form    ${URI}/forms/${form_id}       ${H}
     
