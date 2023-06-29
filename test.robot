@@ -12,8 +12,9 @@ Library              ${EXECDIR}/factory/update.py
    
 *** Test Cases ***
 Deve fazer um Post na API
+      ${BODY}    Json Body
     Post Api    ${URI}/forms   ${HEADER}    ${BODY}
- ${BODY}    Json Body
+ 
    
 
 Deve fazer um Get na API
@@ -21,8 +22,9 @@ Deve fazer um Get na API
    
     
 Deve Atualizar o body
+     ${BODYU}    Json Bodyup
     PATCH API    ${URI}/forms/${form_id}    ${HEADER}    ${BODYU}
-   ${BODYU}    Json Bodyup
+   
 
 Teste 
     Get All Del    ${URI}/forms    ${HEADER}
