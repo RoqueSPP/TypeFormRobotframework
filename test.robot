@@ -10,7 +10,7 @@ Library              ${EXECDIR}/factory/update.py
    
 *** Test Cases ***
 Deve fazer um Post na API
-     $b}     Json Body
+     ${B}     Json Body
     Post Api    ${URI}/forms   TYPEFORM_ACCESS_TOKEN   ${B}
  
    
