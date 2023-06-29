@@ -3,5 +3,5 @@
 
 def json_header():
     return{
-        "Authorization":´{TYPEFORM_ACCESS_TOKEN}`
+        "Authorization":´${TYPEFORM_ACCESS_TOKEN}`
     }
