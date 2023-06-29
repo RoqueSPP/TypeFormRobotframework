@@ -10,8 +10,8 @@ Library              ${EXECDIR}/factory/update.py
    
 *** Test Cases ***
 Deve fazer um Post na API
-    
-    Post Api    ${URI}/forms   TYPEFORM_ACCESS_TOKEN    Json Body
+     $b}     Json Body
+    Post Api    ${URI}/forms   TYPEFORM_ACCESS_TOKEN   ${B}
  
    
 
@@ -21,8 +21,8 @@ Deve fazer um Get na API
    
     
 Deve Atualizar o body
-   
-    PATCH API    ${URI}/forms/${form_id}    TYPEFORM_ACCESS_TOKEN    Json Bodyup
+    ${BU}    Json Bodyup
+    PATCH API    ${URI}/forms/${form_id}    TYPEFORM_ACCESS_TOKEN    ${BU}
    
 
 Teste
