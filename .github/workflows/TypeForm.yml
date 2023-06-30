@@ -34,6 +34,8 @@ jobs:
         run: pip install robotframework-requests
       - name: Run a one-line script
         run: pip install robotframework
+        env:
+          CYPRESS_RECORD_KEY: ${secrets.TYPEFORM_ACCESS_TOKEN)}
       - name: executa
         run: robot -d ./reports test.robot
       - name: Make Directory for results
