@@ -6,7 +6,8 @@ Library              ${EXECDIR}/factory/body.py
 Library              ${EXECDIR}/factory/header.py
 Library              ${EXECDIR}/factory/update.py
 
-
+*** Variables ***
+  ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}
 
 *** Test Cases ***
 Deve fazer um Post na API
