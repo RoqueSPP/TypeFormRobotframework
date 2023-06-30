@@ -11,25 +11,25 @@ Library              ${EXECDIR}/factory/update.py
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    ${URI}/forms   json haeder   ${B}
+    Post Api    ${URI}/forms   "Authorization":"Bearer os.environ('TYPEFORM_ACCESS_TOKEN')"   ${B}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    ${URI}/forms   json haeder
+    Get Api    ${URI}/forms   "Authorization":"Bearer os.environ('TYPEFORM_ACCESS_TOKEN')"
    
     
 Deve Atualizar o body
           
-    PATCH API    ${URI}/forms/${form_id}    json haeder     ${BU}
+    PATCH API    ${URI}/forms/${form_id}    "Authorization":"Bearer os.environ('TYPEFORM_ACCESS_TOKEN')"     ${BU}
    
 
 Teste
        
-    Get All Del    ${URI}/forms   json haeder
+    Get All Del    ${URI}/forms   "Authorization":"Bearer os.environ('TYPEFORM_ACCESS_TOKEN')"
 
 Deve fazer um Del
           
-    Get del Form    ${URI}/forms/${form_id}    json haeder
+    Get del Form    ${URI}/forms/${form_id}    "Authorization":"Bearer os.environ('TYPEFORM_ACCESS_TOKEN')"
     
