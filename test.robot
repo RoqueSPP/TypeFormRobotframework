@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation        Test API TypeForm
 Resource             keywords.robot
-Variables             variavel.robot
+Resource             variavel.robot
 Library              ${EXECDIR}/factory/body.py
 Library              ${EXECDIR}/factory/header.py
 Library              ${EXECDIR}/factory/update.py
