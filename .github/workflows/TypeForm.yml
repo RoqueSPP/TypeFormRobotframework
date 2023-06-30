@@ -35,7 +35,7 @@ jobs:
       - name: Run a one-line script
         run: pip install robotframework
         env:
-          CYPRESS_RECORD_KEY: ${secrets.TYPEFORM_ACCESS_TOKEN)}
+          CYPRESS_RECORD_KEY: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
       - name: executa
         run: robot -d ./reports test.robot
       - name: Make Directory for results
@@ -46,5 +46,5 @@ jobs:
         with:
          name: reports
          path: reports
-         CYPRESS_RECORD_KEY: ${secrets.TYPEFORM_ACCESS_TOKEN)}
+         CYPRESS_RECORD_KEY: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
