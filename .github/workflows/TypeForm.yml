@@ -35,7 +35,7 @@ jobs:
       - name: Run a one-line script
         run: pip install robotframework
         env: 
-          TYPEFORM_ACCESS_TOKEN: ${{ secrets.TYPEFORM_ACCESS_TOKEN }}
+          TYPEFORM_ACCESS_TOKEN: ${{env.TYPEFORM_ACCESS_TOKEN }}
       - name: executa
         run: robot -d ./reports test.robot
       - name: Make Directory for results
