@@ -1,35 +1,38 @@
 *** Settings ***
 Library    RequestsLibrary
-Library   heapq.py
+
+
+*** Variables ***
+${H}        TYPEFORM_ACCESS_TOKEN
 
 *** Keywords ***
 Get del Form
-    [Arguments]    ${U}     ${TYPEFORM_ACCESS_TOKEN} 
-    ${response}    DELETE    ${U}     headers=${TYPEFORM_ACCESS_TOKEN}  
+    [Arguments]    ${U}
+    ${response}    DELETE    ${U}     headers=${H}  
 
 Get Api
-    [Arguments]       ${U}     ${TYPEFORM_ACCESS_TOKEN}
-    ${response}    GET    ${U}    headers=${TYPEFORM_ACCESS_TOKEN}
+    [Arguments]       ${U}
+    ${response}    GET    ${U}    headers=${H}
     ${form_id}    Set Variable    ${response.json()}[items][0][id]        
     Log To Console    ${response.json()}
     Set Suite Variable    ${form_id}
     Status Should Be    200
 
 Post Api
-    [Arguments]    ${U}    ${TYPEFORM_ACCESS_TOKEN}    ${B}
-    ${response}    POST    ${U}    headers=${TYPEFORM_ACCESS_TOKEN}     json=${B}        
+    [Arguments]    ${U}    ${B}
+    ${response}    POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
     Log To Console    ${response.json()}
     ${form_id}    Set Variable    ${response.json()}[id]
     Set Suite Variable    ${form_id}
     
 Get All Del
-    [Arguments]       ${U}     ${TYPEFORM_ACCESS_TOKEN}
-    ${response}    GET    ${U}    headers=${TYPEFORM_ACCESS_TOKEN}
+    [Arguments]       ${U} 
+    ${response}    GET    ${U}    headers=${H}
     ${form_id}  Set Variable     ${response.json()}[items][0][id]       
     Log To Console     ${response.json()}
     Log To Console    ${form_id}
     Set Suite Variable    ${form_id}
 PATCH API
-    [Arguments]    ${U}     ${TYPEFORM_ACCESS_TOKEN}    ${B}
-    ${response}    PATCH    ${U}     headers=${TYPEFORM_ACCESS_TOKEN}  json=${B}
+    [Arguments]    ${U}     ${B}
+    ${response}    PATCH    ${U}     headers=${H}  json=${B}
