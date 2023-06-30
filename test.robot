@@ -11,25 +11,25 @@ Library              ${EXECDIR}/factory/update.py
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    ${URI}/forms   "Authorization":"Bearer ${'TYPEFORM_ACCESS_TOKEN'}"   ${B}
+    Post Api    ${URI}/forms   "Authorization":"Bearer ${'CYPRESS_RECORD_KEY'}"   ${B}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    ${URI}/forms   "Authorization":"Bearer ${'TYPEFORM_ACCESS_TOKEN'}"
+    Get Api    ${URI}/forms   "Authorization":"Bearer ${'CYPRESS_RECORD_KEY'}"
    
     
 Deve Atualizar o body
           
-    PATCH API    ${URI}/forms/${form_id}    "Authorization":"Bearer ${'TYPEFORM_ACCESS_TOKEN'}"     ${BU}
+    PATCH API    ${URI}/forms/${form_id}    "Authorization":"Bearer ${'CYPRESS_RECORD_KEY'}"     ${BU}
    
 
 Teste
        
-    Get All Del    ${URI}/forms   "Authorization":"Bearer ${'TYPEFORM_ACCESS_TOKEN'}"
+    Get All Del    ${URI}/forms   "Authorization":"Bearer ${'CYPRESS_RECORD_KEY'}"
 
 Deve fazer um Del
           
-    Get del Form    ${URI}/forms/${form_id}    "Authorization":"Bearer ${'TYPEFORM_ACCESS_TOKEN'}"
+    Get del Form    ${URI}/forms/${form_id}    "Authorization":"Bearer ${'CYPRESS_RECORD_KEY'}"
     
