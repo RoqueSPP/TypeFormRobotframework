@@ -7,11 +7,11 @@ ${H}        TYPEFORM_ACCESS_TOKEN
 
 *** Keywords ***
 Get del Form
-    [Arguments]    ${U}
+    [Arguments]    ${U}    ${H}
     ${response}    DELETE    ${U}     headers=${H}  
 
 Get Api
-    [Arguments]       ${U}
+    [Arguments]       ${U}    ${H}
     ${response}    GET    ${U}    headers=${H}
     ${form_id}    Set Variable    ${response.json()}[items][0][id]        
     Log To Console    ${response.json()}
@@ -19,7 +19,7 @@ Get Api
     Status Should Be    200
 
 Post Api
-    [Arguments]    ${U}    ${B}
+    [Arguments]    ${U}   ${H}   ${B}
     ${response}    POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
     Log To Console    ${response.json()}
@@ -27,12 +27,12 @@ Post Api
     Set Suite Variable    ${form_id}
     
 Get All Del
-    [Arguments]       ${U} 
+    [Arguments]       ${U}  ${H}
     ${response}    GET    ${U}    headers=${H}
     ${form_id}  Set Variable     ${response.json()}[items][0][id]       
     Log To Console     ${response.json()}
     Log To Console    ${form_id}
     Set Suite Variable    ${form_id}
 PATCH API
-    [Arguments]    ${U}     ${B}
+    [Arguments]    ${U}  ${H}   ${B}
     ${response}    PATCH    ${U}     headers=${H}  json=${B}
