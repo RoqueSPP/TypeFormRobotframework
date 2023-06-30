@@ -10,26 +10,26 @@ Library              ${EXECDIR}/factory/update.py
 
 *** Test Cases ***
 Deve fazer um Post na API
-           ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}
-    Post Api    ${URI}/forms   ${H}   ${B}
+
+    Post Api    ${URI}/forms   "Authorization":"Bearer TYPEFORM_ACCESS_TOKEN"   ${B}
  
    
 
 Deve fazer um Get na API
-          ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}
-    Get Api    ${URI}/forms    ${H}
+         
+    Get Api    ${URI}/forms   "Authorization":"Bearer TYPEFORM_ACCESS_TOKEN"
    
     
 Deve Atualizar o body
-           ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}
-    PATCH API    ${URI}/forms/${form_id}    ${H}    ${BU}
+          
+    PATCH API    ${URI}/forms/${form_id}    "Authorization":"Bearer TYPEFORM_ACCESS_TOKEN"    ${BU}
    
 
 Teste
-          ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}
-    Get All Del    ${URI}/forms    ${H}
+       
+    Get All Del    ${URI}/forms   "Authorization":"Bearer TYPEFORM_ACCESS_TOKEN"
 
 Deve fazer um Del
-           ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}
-    Get del Form    ${URI}/forms/${form_id}       ${H}
+          
+    Get del Form    ${URI}/forms/${form_id}      "Authorization":"Bearer TYPEFORM_ACCESS_TOKEN"
     
