@@ -15,7 +15,7 @@ ${B}    Json Body
   
 ${URI}    https://api.typeform.com
 
-${H}   "$CYPRESS_RECORD_KEY"  
+${H}   "Bearer $CYPRESS_RECORD_KEY"  
 Set Suite Variable       ${H}
 
 *** Test Cases ***
