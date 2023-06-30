@@ -7,7 +7,8 @@ Library              ${EXECDIR}/factory/header.py
 Library              ${EXECDIR}/factory/update.py
 
 
-
+*** Variables ***
+Set Suite Variable       $CYPRESS_RECORD_KEY
 *** Test Cases ***
 Deve fazer um Post na API
 
