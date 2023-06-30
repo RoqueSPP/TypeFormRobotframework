@@ -21,25 +21,25 @@ Set Suite Variable       ${H}
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    https://api.typeform.com/forms   ${H}   ${B}
+    Post Api    https://api.typeform.com/forms   "Bearer $CYPRESS_RECORD_KEY"    ${B}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    https://api.typeform.com/forms  ${H}
+    Get Api    https://api.typeform.com/forms  "Bearer $CYPRESS_RECORD_KEY" 
    
     
 Deve Atualizar o body
           
-    PATCH API    https://api.typeform.com/forms/${form_id}    ${H}     ${BU}
+    PATCH API    https://api.typeform.com/forms/${form_id}   "Bearer $CYPRESS_RECORD_KEY"      ${BU}
    
 
 Teste
        
-    Get All Del    https://api.typeform.com/forms   ${H}
+    Get All Del    https://api.typeform.com/forms   "Bearer $CYPRESS_RECORD_KEY" 
 
 Deve fazer um Del
           
-    Get del Form    https://api.typeform.com/forms/${form_id}    ${H}
+    Get del Form    https://api.typeform.com/forms/${form_id}    "Bearer $CYPRESS_RECORD_KEY" 
     
