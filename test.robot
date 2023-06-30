@@ -7,10 +7,6 @@ Library              ${EXECDIR}/factory/header.py
 Library              ${EXECDIR}/factory/update.py
 
 
-***Variables***
- ${H}    json header
-${BU}    Json Bodyup
-${B}    Json Body
 
 *** Test Cases ***
 Deve fazer um Post na API
