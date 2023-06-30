@@ -44,5 +44,5 @@ jobs:
         with:
          name: reports
          path: reports
-         CYPRESS_RECORD_KEY: ${Cypress.env('TYPEFORM_ACCESS_TOKEN')}
+         CYPRESS_RECORD_KEY: ${secrets.TYPEFORM_ACCESS_TOKEN)}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
