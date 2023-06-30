@@ -8,29 +8,31 @@ Library              ${EXECDIR}/factory/update.py
 
 
 *** Variables ***
-Set Suite Variable       $CYPRESS_RECORD_KEY
+${H}   "Authorization":"Bearer $CYPRESS_RECORD_KEY"  
+Set Suite Variable       ${H}
+
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    ${URI}/forms   "Authorization":"Bearer $CYPRESS_RECORD_KEY"   ${B}
+    Post Api    ${URI}/forms   ${H}   ${B}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    ${URI}/forms   "Authorization":"Bearer $CYPRESS_RECORD_KEY"
+    Get Api    ${URI}/forms  ${H}
    
     
 Deve Atualizar o body
           
-    PATCH API    ${URI}/forms/${form_id}    "Authorization":"Bearer $CYPRESS_RECORD_KEY"     ${BU}
+    PATCH API    ${URI}/forms/${form_id}    ${H}     ${BU}
    
 
 Teste
        
-    Get All Del    ${URI}/forms   "Authorization":"Bearer $CYPRESS_RECORD_KEY"
+    Get All Del    ${URI}/forms   ${H}
 
 Deve fazer um Del
           
-    Get del Form    ${URI}/forms/${form_id}    "Authorization":"Bearer $CYPRESS_RECORD_KEY"
+    Get del Form    ${URI}/forms/${form_id}    ${H}
     
