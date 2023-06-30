@@ -4,6 +4,9 @@
 Documentation        KeyWord
 
 *** Variables ***
+ ${H}    json header
+${BU}    Json Bodyup
+${B}    Json Body
 
   
 ${URI}    https://api.typeform.com
