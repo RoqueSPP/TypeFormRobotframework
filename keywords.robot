@@ -1,6 +1,6 @@
 *** Settings ***
 Library    RequestsLibrary
-
+Resource     variavel.robot
 
 *** Variables ***
 ${H}        TYPEFORM_ACCESS_TOKEN
