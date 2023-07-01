@@ -37,7 +37,8 @@ jobs:
         env:
           TYPEFORM_ACCESS_TOKEN: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
       - name: executa
-        run: cat  $TYPEFORM_ACCESS_TOKEN
+        run: |
+         echo "This is a secret value: $TYPEFORM_ACCESS_TOKEN"
       - name: executa
         run: robot -d ./reports test.robot
       - name: Make Directory for results
