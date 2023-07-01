@@ -19,23 +19,23 @@ Library              ${EXECDIR}/factory/update.py
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    https://api.typeform.com/forms   ${HEADER}    ${BODY}
+    Post Api    https://api.typeform.com/forms   Bearer ${(CYPRESS_RECORD_KEY)}    ${BODY}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    https://api.typeform.com/forms    ${HEADER}
+    Get Api    https://api.typeform.com/forms    Bearer ${(CYPRESS_RECORD_KEY)}
    
     
 Deve Atualizar o body
           
-    PATCH API    https://api.typeform.com/forms/${form_id}   ${HEADER}     ${BODYU}
+    PATCH API    https://api.typeform.com/forms/${form_id}   Bearer ${(CYPRESS_RECORD_KEY)}     ${BODYU}
    
 
 Teste
        
-    Get All Del    https://api.typeform.com/forms     ${HEADER}
+    Get All Del    https://api.typeform.com/forms     Bearer ${(CYPRESS_RECORD_KEY)}
 
 
 *** Keywords ***
