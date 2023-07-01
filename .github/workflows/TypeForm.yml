@@ -37,7 +37,7 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
       - name: executa
-        run: echo $TYPEFORM_ACCESS_TOKEN
+        run: echo $CYPRESS_RECORD_KEY
       - name: executa
         run: robot -d ./reports test.robot
       - name: Make Directory for results
