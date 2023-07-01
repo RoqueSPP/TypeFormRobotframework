@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
-        run: |
+        run: |$
           python -m pip install --upgrade pip
       - uses: actions/checkout@v2
       - name: Requests
@@ -36,6 +36,8 @@ jobs:
         run: pip install robotframework
         env:
           CYPRESS_RECORD_KEY: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
+      - name: executa
+        run: echo $TYPEFORM_ACCESS_TOKEN
       - name: executa
         run: robot -d ./reports test.robot
       - name: Make Directory for results
