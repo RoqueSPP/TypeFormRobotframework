@@ -11,35 +11,33 @@ Library              ${EXECDIR}/factory/update.py
 
 ${BU}    Json Bodyup
 ${B}    Json Body
-
+${H}   "Bearer $CYPRESS_RECORD_KEY"  
   
 ${URI}    https://api.typeform.com
-
-${H}   "Bearer $CYPRESS_RECORD_KEY"  
 Set Suite Variable       ${H}
 
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    https://api.typeform.com/forms   "Bearer $CYPRESS_RECORD_KEY"    ${B}
+    Post Api    https://api.typeform.com/forms ${H}    ${B}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    https://api.typeform.com/forms  "Bearer $CYPRESS_RECORD_KEY" 
+    Get Api    https://api.typeform.com/forms  ${H}
    
     
 Deve Atualizar o body
           
-    PATCH API    https://api.typeform.com/forms/${form_id}   "Bearer $CYPRESS_RECORD_KEY"      ${BU}
+    PATCH API    https://api.typeform.com/forms/${form_id}   ${H}     ${BU}
    
 
 Teste
        
-    Get All Del    https://api.typeform.com/forms   "Bearer $CYPRESS_RECORD_KEY" 
+    Get All Del    https://api.typeform.com/forms   ${H}
 
 Deve fazer um Del
           
-    Get del Form    https://api.typeform.com/forms/${form_id}    "Bearer $CYPRESS_RECORD_KEY" 
+    Get del Form    https://api.typeform.com/forms/${form_id}    ${H}
     
