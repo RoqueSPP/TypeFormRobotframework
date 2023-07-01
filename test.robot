@@ -19,13 +19,13 @@ Set Suite Variable       ${H}
 *** Test Cases ***
 Deve fazer um Post na API
 
-    Post Api    https://api.typeform.com/forms ${H}    ${B}
+    Post Api    https://api.typeform.com/forms   ${H}    ${B}
  
    
 
 Deve fazer um Get na API
          
-    Get Api    https://api.typeform.com/forms  ${H}
+    Get Api    https://api.typeform.com/forms    ${H}
    
     
 Deve Atualizar o body
@@ -35,7 +35,7 @@ Deve Atualizar o body
 
 Teste
        
-    Get All Del    https://api.typeform.com/forms   ${H}
+    Get All Del    https://api.typeform.com/forms     ${H}
 
 Deve fazer um Del
           
