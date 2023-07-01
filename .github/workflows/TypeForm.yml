@@ -35,7 +35,7 @@ jobs:
       - name: Run a one-line script
         run: pip install robotframework
         env:
-          CYPRESS_RECORD_KEY: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
+          TYPEFORM_ACCESS_TOKEN: ${(secrets.TYPEFORM_ACCESS_TOKEN)}
       - name: executa
         run: echo ${(secrets.TYPEFORM_ACCESS_TOKEN)}
       - name: executa
