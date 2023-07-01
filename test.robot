@@ -11,7 +11,7 @@ Library              ${EXECDIR}/factory/update.py
 
   ${BODYU}    Json Bodyup
   ${BODY}    Json Body
-  ${HEADER}   "Bearer $CYPRESS_RECORD_KEY"  
+  ${HEADER}   "Bearer ${(CYPRESS_RECORD_KEY)}"  
   
   ${URI}    https://api.typeform.com
   Set Suite Variable       ${HEADER}
