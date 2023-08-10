@@ -11,9 +11,7 @@ Library              ${EXECDIR}/factory/update.py
 
 *** Test Cases ***
 Deve fazer um Post na API
-    ${BU}    Json Bodyup
-    ${B}     Json Body
-    ${H}    Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}"
+   
   
 
     Post Api    https://api.typeform.com/forms   headers=${H}    json=${B}
