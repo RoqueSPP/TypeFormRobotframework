@@ -27,7 +27,7 @@ Get Api
 Post Api
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    {"Authorization":"Bearer ACCESS_TOKEN"}
+    ${H}    {"Authorization":"Bearer ${ACCESS_TOKEN}"}
     [Arguments]    ${U}
     ${response}    POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
