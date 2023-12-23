@@ -19,9 +19,7 @@ def json_bodyup():
                 "allow_indexing": True,
                 "canva_design_id": "DAElrx6aq-A",
                 "description": "meta description",
-                "image": {
-                    "href": "https://images.typeform.com/images/NwfYdqfMrDxQ"
-                },
+                
                 "title": "Atualizar form"
             }
         },
@@ -29,7 +27,7 @@ def json_bodyup():
             "op": "replace",
             "path": "/cui_settings",
             "value": {
-                "avatar": "https://images.typeform.com/images/4bcd3",
+               
                 "is_typing_emulation_disabled": False,
                 "typing_emulation_speed": "fast"
             }
