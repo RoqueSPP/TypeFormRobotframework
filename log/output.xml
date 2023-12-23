@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231223 15:52:09.667" rpa="false" schemaversion="4">
+<suite id="s1" name="Test" source="C:\Users\Roque\Desktop\TypeFormRobotframework\test.robot">
+<test id="s1-t1" name="Deve fazer um Post na API" line="9">
+<kw name="Post Api" library="keywords">
+<arg>https://api.typeform.com/forms</arg>
+<kw name="Json Bodyup" library="update">
+<var>${BU}</var>
+<msg timestamp="20231223 15:52:09.883" level="INFO">${BU} = [{'op': 'replace', 'path': '/title', 'value': 'Atualiza form'}, {'op': 'replace', 'path': '/settings/is_public', 'value': False}, {'op': 'replace', 'path': '/settings/meta', 'value': {'allow_indexing'...</msg>
+<status status="PASS" starttime="20231223 15:52:09.883" endtime="20231223 15:52:09.883"/>
+</kw>
+<kw name="Json Body" library="body">
+<var>${B}</var>
+<msg timestamp="20231223 15:52:09.883" level="INFO">${B} = {'fields': [{'attachment': {'href': 'https://www.youtube.com/watch?v=Uui3oT-XBxs', 'properties': {'description': 'Typeform Home documentary'}, 'scale': 0.8, 'type': 'video'}, 'properties': {'descripti...</msg>
+<status status="PASS" starttime="20231223 15:52:09.883" endtime="20231223 15:52:09.883"/>
+</kw>
+<kw name="Json Header" library="header">
+<var>${H}</var>
+<msg timestamp="20231223 15:52:09.883" level="INFO">${H} = {'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W'}</msg>
+<status status="PASS" starttime="20231223 15:52:09.883" endtime="20231223 15:52:09.883"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${U}</arg>
+<arg>headers=${H}</arg>
+<arg>json=${B}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20231223 15:52:11.163" level="INFO">POST Request : url=https://api.typeform.com/forms 
+ path_url=/forms 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W', 'Content-Length': '879', 'Content-Type': 'application/json'} 
+ body=b'{"fields": [{"attachment": {"href": "https://www.youtube.com/watch?v=Uui3oT-XBxs", "properties": {"description": "Typeform Home documentary"}, "scale": 0.8, "type": "video"}, "properties": {"description": "Cool description for the date", "separator": "-", "structure": "DDMMYYYY"}, "ref": "nice_readable_date_reference", "title": "Teste de form", "type": "date", "validations": {"required": false}}, {"layout": {"attachment": {"href": "https://images.typeform.com/images/4BKUhw8A9cSM", "type": "image"}, "placement": "right", "type": "float"}, "properties": {"alphabetical_order": false, "choices": [{"label": "Foo"}, {"label": "Bar"}], "description": "Cool description for the dropdown", "randomize": false}, "ref": "nice_readable_dropdown_reference", "title": "Dropdown Title", "type": "dropdown", "validations": {"required": false}}], "title": "Teste de form", "type": "quiz"}' 
+ </msg>
+<msg timestamp="20231223 15:52:11.163" level="INFO">POST Response : url=https://api.typeform.com/forms 
+ status=201, reason= 
+ headers={'Date': 'Sat, 23 Dec 2023 18:52:11 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=MFja2cZF4JJeoYB+fvjVTQfnUdbfIw19hCowYRynI0pQgtc0OdQGOVRQFzhkXGpDifl0yhgfiKtt+S5XP5vrchFY0yTXQ2fAxyxmiLcSWnlTpxCKo8b0i8Bpmul9nYT5d+kws29544nxcwGUUatTaKgpIsZt426n7uxVPT3vjxHt; Expires=Sat, 30 Dec 2023 18:52:10 GMT; Path=/, AWSALBTGCORS=MFja2cZF4JJeoYB+fvjVTQfnUdbfIw19hCowYRynI0pQgtc0OdQGOVRQFzhkXGpDifl0yhgfiKtt+S5XP5vrchFY0yTXQ2fAxyxmiLcSWnlTpxCKo8b0i8Bpmul9nYT5d+kws29544nxcwGUUatTaKgpIsZt426n7uxVPT3vjxHt; Expires=Sat, 30 Dec 2023 18:52:10 GMT; Path=/; SameSite=None; Secure', 'location': 'https://api.typeform.com/forms/Ee8VSC6z', 'server': 'istio-envoy', 'traceparent': '00-5d13a916d7c68673713f6256d0f13826-b357c5e5a8b0942b-01', 'x-envoy-upstream-service-time': '135', 'access-control-allow-methods': 'GET, OPTIONS, POST, PUT, PATCH, DELETE', 'access-control-allow-headers': 'X-Typeform-Key, Content-Type, Authorization, Typeform-Version, typeform-app', 'access-control-expose-headers': 'Location, X-Request-Id', 'strict-transport-security': 'max-age=63072000; includeSubDomains'} 
+ body={"id":"Ee8VSC6z","type":"quiz","title":"Teste de form","workspace":{"href":"https://api.typeform.com/workspaces/UGqh5c"},"theme":{"href":"https://api.typeform.com/themes/qHWOQ7"},"settings":{"language":"en","progress_bar":"proportion","meta":{"allow_indexing":false},"hide_navigation":false,"is_public":true,"is_trial":false,"show_progress_bar":true,"show_typeform_branding":true,"are_uploads_public":false,"show_time_to_complete":true,"show_number_of_submissions":false,"show_cookie_consent":false,"show_question_number":true,"show_key_hint_on_choices":true,"autosave_progress":true,"free_form_navigation":false,"use_lead_qualification":false,"pro_subdomain_enabled":false,"capabilities":{"e2e_encryption":{"enabled":false,"modifiable":false}}},"thankyou_screens":[{"id":"DefaultTyScreen","ref":"default_tys","title":"Thanks for completing this typeform\nNow *create your own* — it's free, easy, \u0026 beautiful","type":"thankyou_screen","properties":{"show_button":true,"share_icons":false,"button_mode":"default_redirect","button_text":"Create a *typeform*"},"attachment":{"type":"image","href":"https://images.typeform.com/images/2dpnUBBkz2VN"}}],"fields":[{"id":"crgjmpX7tG99","title":"Teste de form","ref":"nice_readable_date_reference","properties":{"description":"Cool description for the date","separator":"-","structure":"DDMMYYYY"},"validations":{"required":false},"type":"date","attachment":{"type":"video","href":"https://www.youtube.com/watch?v=Uui3oT-XBxs","scale":0.8,"properties":{"description":"Typeform Home documentary"}}},{"id":"tGDyYzKFYObm","title":"Dropdown Title","ref":"nice_readable_dropdown_reference","properties":{"description":"Cool description for the dropdown","randomize":false,"alphabetical_order":false,"choices":[{"id":"PMjF9o0sB9Iv","ref":"01HJC0AGT2R2Y1GZHH9FFGDYM4","label":"Foo"},{"id":"DYZdBXYKVCJv","ref":"01HJC0AGT20F6D2NCWKYKGZDPC","label":"Bar"}]},"validations":{"required":false},"type":"dropdown","layout":{"type":"float","attachment":{"type":"image","href":"https://images.typeform.com/images/BM4mhgTvi3nc"},"placement":"right"}}],"_links":{"display":"https://6nmgj35bh89.typeform.com/to/Ee8VSC6z","responses":"https://api.typeform.com/forms/Ee8VSC6z/responses"}} 
+ </msg>
+<msg timestamp="20231223 15:52:11.163" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231223 15:52:09.883" endtime="20231223 15:52:11.163"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231223 15:52:11.163" endtime="20231223 15:52:11.163"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231223 15:52:11.163" endtime="20231223 15:52:11.169"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${form_id}</var>
+<arg>${response.json()}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231223 15:52:11.183" level="INFO">${form_id} = Ee8VSC6z</msg>
+<status status="PASS" starttime="20231223 15:52:11.169" endtime="20231223 15:52:11.183"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${form_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231223 15:52:11.184" level="INFO">${form_id} = Ee8VSC6z</msg>
+<status status="PASS" starttime="20231223 15:52:11.184" endtime="20231223 15:52:11.184"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:09.883" endtime="20231223 15:52:11.184"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:09.883" endtime="20231223 15:52:11.184"/>
+</test>
+<test id="s1-t2" name="Deve fazer um Get na API" line="15">
+<kw name="Get Api" library="keywords">
+<arg>https://api.typeform.com/forms</arg>
+<kw name="Json Bodyup" library="update">
+<var>${BU}</var>
+<msg timestamp="20231223 15:52:11.189" level="INFO">${BU} = [{'op': 'replace', 'path': '/title', 'value': 'Atualiza form'}, {'op': 'replace', 'path': '/settings/is_public', 'value': False}, {'op': 'replace', 'path': '/settings/meta', 'value': {'allow_indexing'...</msg>
+<status status="PASS" starttime="20231223 15:52:11.189" endtime="20231223 15:52:11.189"/>
+</kw>
+<kw name="Json Body" library="body">
+<var>${B}</var>
+<msg timestamp="20231223 15:52:11.189" level="INFO">${B} = {'fields': [{'attachment': {'href': 'https://www.youtube.com/watch?v=Uui3oT-XBxs', 'properties': {'description': 'Typeform Home documentary'}, 'scale': 0.8, 'type': 'video'}, 'properties': {'descripti...</msg>
+<status status="PASS" starttime="20231223 15:52:11.189" endtime="20231223 15:52:11.189"/>
+</kw>
+<kw name="Json Header" library="header">
+<var>${H}</var>
+<msg timestamp="20231223 15:52:11.189" level="INFO">${H} = {'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W'}</msg>
+<status status="PASS" starttime="20231223 15:52:11.189" endtime="20231223 15:52:11.189"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${U}</arg>
+<arg>headers=${H}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20231223 15:52:12.302" level="INFO">GET Request : url=https://api.typeform.com/forms 
+ path_url=/forms 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W'} 
+ body=None 
+ </msg>
+<msg timestamp="20231223 15:52:12.302" level="INFO">GET Response : url=https://api.typeform.com/forms 
+ status=200, reason= 
+ headers={'Date': 'Sat, 23 Dec 2023 18:52:12 GMT', 'Content-Type': 'application/json', 'Content-Length': '484', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=bK1SjOR3tL8ZF1ZpSijcgwyP7TJXFMci0DeYZLGziK7SupjegHtM5cOhOpqgSstp23LHyWxNgNA/LKTtoGvjE35ShV9FYkYq5Qj5C5qIuPhbSaXIAbxst5ooksw7UCujhigwmqvXm94LVu3JFrd5vgiqiaJq6d6GMJ1sz0AzcHBj; Expires=Sat, 30 Dec 2023 18:52:12 GMT; Path=/, AWSALBTGCORS=bK1SjOR3tL8ZF1ZpSijcgwyP7TJXFMci0DeYZLGziK7SupjegHtM5cOhOpqgSstp23LHyWxNgNA/LKTtoGvjE35ShV9FYkYq5Qj5C5qIuPhbSaXIAbxst5ooksw7UCujhigwmqvXm94LVu3JFrd5vgiqiaJq6d6GMJ1sz0AzcHBj; Expires=Sat, 30 Dec 2023 18:52:12 GMT; Path=/; SameSite=None; Secure', 'server': 'istio-envoy', 'traceparent': '00-7816611288b8c53d344483a7a30a9b45-ac467d6e214ac4df-01', 'x-envoy-upstream-service-time': '54', 'access-control-allow-methods': 'GET, OPTIONS, POST, PUT, PATCH, DELETE', 'access-control-allow-headers': 'X-Typeform-Key, Content-Type, Authorization, Typeform-Version, typeform-app', 'access-control-expose-headers': 'Location, X-Request-Id', 'strict-transport-security': 'max-age=63072000; includeSubDomains'} 
+ body={"total_items":1,"page_count":1,"items":[{"id":"Ee8VSC6z","type":"quiz","title":"Teste de form","last_updated_at":"2023-12-23T18:52:10.949323Z","created_at":"2023-12-23T18:52:10.949323Z","settings":{"is_public":true,"is_trial":false},"self":{"href":"https://api.typeform.com/forms/Ee8VSC6z"},"theme":{"href":"https://api.typeform.com/themes/qHWOQ7"},"_links":{"display":"https://6nmgj35bh89.typeform.com/to/Ee8VSC6z","responses":"https://api.typeform.com/forms/Ee8VSC6z/responses"}}]} 
+ </msg>
+<msg timestamp="20231223 15:52:12.302" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231223 15:52:11.189" endtime="20231223 15:52:12.302"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${form_id}</var>
+<arg>${response.json()}[items][0][id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231223 15:52:12.302" level="INFO">${form_id} = Ee8VSC6z</msg>
+<status status="PASS" starttime="20231223 15:52:12.302" endtime="20231223 15:52:12.302"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231223 15:52:12.302" endtime="20231223 15:52:12.318"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${form_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231223 15:52:12.318" level="INFO">${form_id} = Ee8VSC6z</msg>
+<status status="PASS" starttime="20231223 15:52:12.318" endtime="20231223 15:52:12.318"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231223 15:52:12.318" endtime="20231223 15:52:12.318"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:11.189" endtime="20231223 15:52:12.318"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:11.189" endtime="20231223 15:52:12.318"/>
+</test>
+<test id="s1-t3" name="Deve Atualizar o body" line="21">
+<kw name="PATCH API" library="keywords">
+<arg>https://api.typeform.com/forms/${form_id}</arg>
+<kw name="Json Bodyup" library="update">
+<var>${BU}</var>
+<msg timestamp="20231223 15:52:12.332" level="INFO">${BU} = [{'op': 'replace', 'path': '/title', 'value': 'Atualiza form'}, {'op': 'replace', 'path': '/settings/is_public', 'value': False}, {'op': 'replace', 'path': '/settings/meta', 'value': {'allow_indexing'...</msg>
+<status status="PASS" starttime="20231223 15:52:12.332" endtime="20231223 15:52:12.332"/>
+</kw>
+<kw name="Json Body" library="body">
+<var>${B}</var>
+<msg timestamp="20231223 15:52:12.334" level="INFO">${B} = {'fields': [{'attachment': {'href': 'https://www.youtube.com/watch?v=Uui3oT-XBxs', 'properties': {'description': 'Typeform Home documentary'}, 'scale': 0.8, 'type': 'video'}, 'properties': {'descripti...</msg>
+<status status="PASS" starttime="20231223 15:52:12.333" endtime="20231223 15:52:12.334"/>
+</kw>
+<kw name="Json Header" library="header">
+<var>${H}</var>
+<msg timestamp="20231223 15:52:12.335" level="INFO">${H} = {'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W'}</msg>
+<status status="PASS" starttime="20231223 15:52:12.334" endtime="20231223 15:52:12.336"/>
+</kw>
+<kw name="PATCH" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${U}</arg>
+<arg>headers=${H}</arg>
+<arg>json=${BU}</arg>
+<doc>Sends a PUT request.</doc>
+<msg timestamp="20231223 15:52:13.575" level="INFO">PATCH Request : url=https://api.typeform.com/forms/Ee8VSC6z 
+ path_url=/forms/Ee8VSC6z 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W', 'Content-Length': '433', 'Content-Type': 'application/json'} 
+ body=b'[{"op": "replace", "path": "/title", "value": "Atualiza form"}, {"op": "replace", "path": "/settings/is_public", "value": false}, {"op": "replace", "path": "/settings/meta", "value": {"allow_indexing": true, "canva_design_id": "DAElrx6aq-A", "description": "meta description", "title": "Atualizar form"}}, {"op": "replace", "path": "/cui_settings", "value": {"is_typing_emulation_disabled": false, "typing_emulation_speed": "fast"}}]' 
+ </msg>
+<msg timestamp="20231223 15:52:13.575" level="INFO">PATCH Response : url=https://api.typeform.com/forms/Ee8VSC6z 
+ status=204, reason= 
+ headers={'Date': 'Sat, 23 Dec 2023 18:52:13 GMT', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=Uf+ADkljE3jcdQ4fDmFdc+2Y99UhtfCWE57HlKtWFsrt3sERi05GH0Ups4AUUL/bz49cn7sZ6ZkYCiGkg4qnPlMImY7bnKA7KrO440OPKrPDBdHmMN0TcVCx7bmRX4MozadYUr4EX2+IBXJVIBSRiADumBl5owxa1Z9ih/H1eIbE; Expires=Sat, 30 Dec 2023 18:52:13 GMT; Path=/, AWSALBTGCORS=Uf+ADkljE3jcdQ4fDmFdc+2Y99UhtfCWE57HlKtWFsrt3sERi05GH0Ups4AUUL/bz49cn7sZ6ZkYCiGkg4qnPlMImY7bnKA7KrO440OPKrPDBdHmMN0TcVCx7bmRX4MozadYUr4EX2+IBXJVIBSRiADumBl5owxa1Z9ih/H1eIbE; Expires=Sat, 30 Dec 2023 18:52:13 GMT; Path=/; SameSite=None; Secure', 'server': 'istio-envoy', 'traceparent': '00-1286165ccd7873ccfda73d0d2ccc6c1f-eb14ea112a83a7ff-01', 'x-envoy-upstream-service-time': '168', 'access-control-allow-methods': 'GET, OPTIONS, POST, PUT, PATCH, DELETE', 'access-control-allow-headers': 'X-Typeform-Key, Content-Type, Authorization, Typeform-Version, typeform-app', 'access-control-expose-headers': 'Location, X-Request-Id', 'strict-transport-security': 'max-age=63072000; includeSubDomains'} 
+ body=None 
+ </msg>
+<msg timestamp="20231223 15:52:13.575" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231223 15:52:12.336" endtime="20231223 15:52:13.575"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:12.330" endtime="20231223 15:52:13.575"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:12.318" endtime="20231223 15:52:13.575"/>
+</test>
+<test id="s1-t4" name="Deve deletar o form" line="26">
+<kw name="Get del Form" library="keywords">
+<arg>https://api.typeform.com/forms/${form_id}</arg>
+<kw name="Json Bodyup" library="update">
+<var>${BU}</var>
+<msg timestamp="20231223 15:52:13.590" level="INFO">${BU} = [{'op': 'replace', 'path': '/title', 'value': 'Atualiza form'}, {'op': 'replace', 'path': '/settings/is_public', 'value': False}, {'op': 'replace', 'path': '/settings/meta', 'value': {'allow_indexing'...</msg>
+<status status="PASS" starttime="20231223 15:52:13.590" endtime="20231223 15:52:13.590"/>
+</kw>
+<kw name="Json Body" library="body">
+<var>${B}</var>
+<msg timestamp="20231223 15:52:13.590" level="INFO">${B} = {'fields': [{'attachment': {'href': 'https://www.youtube.com/watch?v=Uui3oT-XBxs', 'properties': {'description': 'Typeform Home documentary'}, 'scale': 0.8, 'type': 'video'}, 'properties': {'descripti...</msg>
+<status status="PASS" starttime="20231223 15:52:13.590" endtime="20231223 15:52:13.590"/>
+</kw>
+<kw name="Json Header" library="header">
+<var>${H}</var>
+<msg timestamp="20231223 15:52:13.590" level="INFO">${H} = {'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W'}</msg>
+<status status="PASS" starttime="20231223 15:52:13.590" endtime="20231223 15:52:13.590"/>
+</kw>
+<kw name="DELETE" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${U}</arg>
+<arg>headers=${H}</arg>
+<doc>Sends a DELETE request.</doc>
+<msg timestamp="20231223 15:52:14.909" level="INFO">DELETE Request : url=https://api.typeform.com/forms/Ee8VSC6z 
+ path_url=/forms/Ee8VSC6z 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer tfp_6tP29bx5WGnKdqsjiBuUsP73VFKP7uDZ22q5Rsc9kMTw_h1eA8a5se62W', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231223 15:52:14.909" level="INFO">DELETE Response : url=https://api.typeform.com/forms/Ee8VSC6z 
+ status=204, reason= 
+ headers={'Date': 'Sat, 23 Dec 2023 18:52:14 GMT', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=8Sti8kniD8nfYni7pLO5LH++GwRKLLPRhJ4MNyEBpdQpVe16B8kOx+lxOo5GVZjB1bdgJ2VHIUwhSfyns3T14ZDV6/5t7MRq+m804RKxbufQZDBKvMuySHTJi/YtU6eCYcBzPhMpueZTGy+auAn6th2cG4i9/aMao2X/icEH5W/P; Expires=Sat, 30 Dec 2023 18:52:14 GMT; Path=/, AWSALBTGCORS=8Sti8kniD8nfYni7pLO5LH++GwRKLLPRhJ4MNyEBpdQpVe16B8kOx+lxOo5GVZjB1bdgJ2VHIUwhSfyns3T14ZDV6/5t7MRq+m804RKxbufQZDBKvMuySHTJi/YtU6eCYcBzPhMpueZTGy+auAn6th2cG4i9/aMao2X/icEH5W/P; Expires=Sat, 30 Dec 2023 18:52:14 GMT; Path=/; SameSite=None; Secure', 'server': 'istio-envoy', 'traceparent': '00-8861724aab7d89cf6250da6d12c5e5cc-7f563d5cb2706fbd-01', 'x-envoy-upstream-service-time': '245', 'access-control-allow-methods': 'GET, OPTIONS, POST, PUT, PATCH, DELETE', 'access-control-allow-headers': 'X-Typeform-Key, Content-Type, Authorization, Typeform-Version, typeform-app', 'access-control-expose-headers': 'Location, X-Request-Id', 'strict-transport-security': 'max-age=63072000; includeSubDomains'} 
+ body=None 
+ </msg>
+<msg timestamp="20231223 15:52:14.909" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231223 15:52:13.590" endtime="20231223 15:52:14.909"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:13.590" endtime="20231223 15:52:14.909"/>
+</kw>
+<status status="PASS" starttime="20231223 15:52:13.590" endtime="20231223 15:52:14.909"/>
+</test>
+<doc>Test API TypeForm</doc>
+<status status="PASS" starttime="20231223 15:52:09.667" endtime="20231223 15:52:14.909"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

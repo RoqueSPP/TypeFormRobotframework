@@ -3,30 +3,27 @@ Documentation        Test API TypeForm
 Library    RequestsLibrary
 Resource             keywords.robot
 Resource             variavel.robot
-Library              ${EXECDIR}/factory/body.py
-Library              ${EXECDIR}/factory/header.py
-Library              ${EXECDIR}/factory/update.py
 
 
 *** Test Cases ***
 Deve fazer um Post na API
-   
-  
 
-    Post Api    https://api.typeform.com/forms   headers="Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}"    json=${B}
+    Post Api    https://api.typeform.com/forms
  
    
 
 Deve fazer um Get na API
-         
-    Get Api    https://api.typeform.com/forms   headers="Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}"
+
+  
+    Get Api    https://api.typeform.com/forms
    
     
 Deve Atualizar o body
           
-    PATCH API    https://api.typeform.com/forms/${form_id}  headers="Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}"     json=${BU}
+    PATCH API    https://api.typeform.com/forms/${form_id}
    
 
-Teste
+Deve deletar o form
        
-    Get All Del    https://api.typeform.com/forms    headers="Authorization":"Bearer ${{TYPEFORM_ACCESS_TOKEN}}"
+       
+    Get del Form    https://api.typeform.com/forms/${form_id}
