@@ -5,18 +5,19 @@ Library    ./factory/body.py
 Library    ./factory/header.py
 Library    ./factory/update.py
 
-*** Keywords ***
-Get del Form
+*** Keywords ***Get del Form
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
+    # ${H}    Json header
+    ${H}    ${secret}
     [Arguments]    ${U}
     ${response}    DELETE    ${U}     headers=${H}  
 
 Get Api
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
+    # ${H}    Json header
+    ${H}    ${secret}
     [Arguments]       ${U}
     ${response}    GET    ${U}    headers=${H}
     ${form_id}    Set Variable    ${response.json()}[items][0][id]        
@@ -27,7 +28,8 @@ Get Api
 Post Api
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    {"Authorization":"Bearer ('ACCESS_TOKEN')"}
+    # ${H}    Json header
+    ${H}    ${secret}
     [Arguments]    ${U}
     ${response}    POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
@@ -38,7 +40,8 @@ Post Api
 Get All Del
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
+    # ${H}    Json header
+    ${H}    ${secret}
     [Arguments]       ${U}
     ${response}    GET    ${U}    headers=${H}
     ${form_id}  Set Variable     ${response.json()}[items][0][id]       
@@ -48,6 +51,7 @@ Get All Del
 PATCH API
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
+    # ${H}    Json header
+    ${H}    ${secret}
     [Arguments]    ${U}
     ${response}    PATCH    ${U}     headers=${H}  json=${BU}
