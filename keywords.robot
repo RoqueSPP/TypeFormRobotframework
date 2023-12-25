@@ -5,6 +5,9 @@ Library    ./factory/body.py
 Library    ./factory/header.py
 Library    ./factory/update.py
 
+*** Variables ***
+${H}    ${secret}
+
 *** Keywords ***Get del Form
     ${BU}   Json Bodyup
     ${B}    Json Body
