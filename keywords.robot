@@ -15,7 +15,7 @@ Get del Form
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]    ${U}
-    ${response}    RequestsLibrary.DELETE    ${U}     headers=${H}  
+    ${response}    DELETE    ${U}     headers=${H}  
 
 Get Api
     ${BU}   Json Bodyup
@@ -23,7 +23,7 @@ Get Api
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]       ${U}
-    ${response}    RequestsLibrary.GET    ${U}    headers=${H}
+    ${response}    GET    ${U}    headers=${H}
     ${form_id}    Set Variable    ${response.json()}[items][0][id]        
     Log To Console    ${response.json()}
     Set Suite Variable    ${form_id}
@@ -35,7 +35,7 @@ Post Api
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]    ${U}
-    ${response}    RequestsLibrary.POST    ${U}    headers=${H}     json=${B}        
+    ${response}    POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
     Log To Console    ${response.json()}
     ${form_id}    Set Variable    ${response.json()}[id]
@@ -47,7 +47,7 @@ Get All Del
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]       ${U}
-    ${response}    RequestsLibrary.GET    ${U}    headers=${H}
+    ${response}    GET    ${U}    headers=${H}
     ${form_id}  Set Variable     ${response.json()}[items][0][id]       
     Log To Console     ${response.json()}
     Log To Console    ${form_id}
@@ -58,4 +58,4 @@ PATCH API
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]    ${U}
-    ${response}    RequestsLibrary.PATCH    ${U}     headers=${H}  json=${BU}
+    ${response}    PATCH    ${U}     headers=${H}  json=${BU}
