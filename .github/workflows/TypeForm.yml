@@ -43,5 +43,5 @@ jobs:
         with:
          name: reports
          path: reports
-         TYPEFORM_ACCESS_TOKEN: ${(secrets.ACCESS_TOKEN)}
+         secre: ${(secrets.ACCESS_TOKEN)}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
