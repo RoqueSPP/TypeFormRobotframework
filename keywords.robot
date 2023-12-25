@@ -8,13 +8,14 @@ Library    ./factory/update.py
 *** Variables ***
 ${H}    ${secret}
 
-*** Keywords ***Get del Form
+*** Keywords ***
+Get del Form
     ${BU}   Json Bodyup
     ${B}    Json Body
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]    ${U}
-    ${response}    DELETE    ${U}     headers=${H}  
+    ${response}    RequestsLibrary.DELETE    ${U}     headers=${H}  
 
 Get Api
     ${BU}   Json Bodyup
@@ -22,7 +23,7 @@ Get Api
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]       ${U}
-    ${response}    GET    ${U}    headers=${H}
+    ${response}    RequestsLibrary.GET    ${U}    headers=${H}
     ${form_id}    Set Variable    ${response.json()}[items][0][id]        
     Log To Console    ${response.json()}
     Set Suite Variable    ${form_id}
@@ -34,7 +35,7 @@ Post Api
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]    ${U}
-    ${response}    POST    ${U}    headers=${H}     json=${B}        
+    ${response}    RequestsLibrary.POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
     Log To Console    ${response.json()}
     ${form_id}    Set Variable    ${response.json()}[id]
@@ -46,7 +47,7 @@ Get All Del
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]       ${U}
-    ${response}    GET    ${U}    headers=${H}
+    ${response}    RequestsLibrary.GET    ${U}    headers=${H}
     ${form_id}  Set Variable     ${response.json()}[items][0][id]       
     Log To Console     ${response.json()}
     Log To Console    ${form_id}
@@ -57,4 +58,4 @@ PATCH API
     # ${H}    Json header
     ${H}    ${secret}
     [Arguments]    ${U}
-    ${response}    PATCH    ${U}     headers=${H}  json=${BU}
+    ${response}    RequestsLibrary.PATCH    ${U}     headers=${H}  json=${BU}
