@@ -2,4 +2,4 @@
 
 
 def json_header():
-    return    ('secret')
+    return    ${('secret')}
