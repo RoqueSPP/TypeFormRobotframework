@@ -43,5 +43,5 @@ jobs:
         with:
          name: reports
          path: reports
-         secret: ${(secrets.ACCESS_TOKEN)}
+         SECRET: ${(secrets.secret)}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
