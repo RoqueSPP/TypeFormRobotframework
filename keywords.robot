@@ -28,9 +28,8 @@ Get Api
 Post Api
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    ${SECRET}
     [Arguments]    ${U}
-    ${response}    POST    ${U}    headers=${H}     json=${B}        
+    ${response}    POST    ${U}    headers=${SECRET}     json=${B}        
     Status Should Be    201    ${response}
     Log To Console    ${response.json()}
     ${form_id}    Set Variable    ${response.json()}[id]
