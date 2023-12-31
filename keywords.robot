@@ -28,7 +28,7 @@ Get Api
 Post Api
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
+    ${H}    ${SECRET}
     [Arguments]    ${U}
     ${response}    POST    ${U}    headers=${H}     json=${B}        
     Status Should Be    201    ${response}
