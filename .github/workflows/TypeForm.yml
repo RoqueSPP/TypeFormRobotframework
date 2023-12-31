@@ -34,7 +34,7 @@ jobs:
       - name: Run a one-line script
         run: pip install robotframework
       - name: executa
-        run: robot -d ./reports -v secret:secret test.robot
+        run: robot -d ./reports -v secret:${{ env.secret }} test.robot
       - name: Make Directory for results
         run: mkdir -p reports
       - name: Upload test results
@@ -43,5 +43,3 @@ jobs:
         with:
          name: reports
          path: reports
-         SECRET: ${(secrets.secret)}
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
