@@ -34,7 +34,7 @@ jobs:
       - name: Run a one-line script
         run: pip install robotframework
       - name: executa
-        run: robot -d ./reports -v ${{ env.SECRET }} test.robot
+        run: robot -d ./reports -v SECRET:${{ env.SECRET }} test.robot
       - name: Make Directory for results
         run: mkdir -p reports
       - name: Upload test results
