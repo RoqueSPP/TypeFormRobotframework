@@ -10,16 +10,14 @@ Library    ./factory/update.py
 Get del Form
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
     [Arguments]    ${U}
-    ${response}    DELETE    ${U}     headers=${H}  
+    ${response}    DELETE    ${U}     headers=${SECRET}
 
 Get Api
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
     [Arguments]       ${U}
-    ${response}    GET    ${U}    headers=${H}
+    ${response}    GET    ${U}    headers=${SECRET}
     ${form_id}    Set Variable    ${response.json()}[items][0][id]        
     Log To Console    ${response.json()}
     Set Suite Variable    ${form_id}
@@ -38,9 +36,8 @@ Post Api
 Get All Del
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
     [Arguments]       ${U}
-    ${response}    GET    ${U}    headers=${H}
+    ${response}    GET    ${U}    headers=${SECRET}
     ${form_id}  Set Variable     ${response.json()}[items][0][id]       
     Log To Console     ${response.json()}
     Log To Console    ${form_id}
@@ -48,6 +45,5 @@ Get All Del
 PATCH API
     ${BU}   Json Bodyup
     ${B}    Json Body
-    ${H}    Json header
     [Arguments]    ${U}
-    ${response}    PATCH    ${U}     headers=${H}  json=${BU}
+    ${response}    PATCH    ${U}     headers=${SECRET}  json=${BU}
