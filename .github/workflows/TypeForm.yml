@@ -33,6 +33,8 @@ jobs:
         run: pip install robotframework-requests
       - name: Run a one-line script
         run: pip install robotframework
+        env:
+          SECRET: SECRET
       - name: executa
         run: robot -d ./reports -v secret:${{ env.SECRET }} test.robot
       - name: Make Directory for results
